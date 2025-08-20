@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+/* Base HTML styling */
+html {
+  min-height: 100vh;
+  @apply bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-100;
+}
+
+/* Reusable Button Variants */
+@layer components {
+  .btn-blue {
+    @apply bg-blue-600 text-white py-2 px-4 rounded-md 
+           hover:bg-blue-700 
+           focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
+           dark:bg-blue-700 dark:hover:bg-blue-600;
+  }
+
+  .btn-green {
+    @apply bg-green-600 text-white py-2 px-4 rounded-md 
+           hover:bg-green-700 
+           focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2
+           dark:bg-green-700 dark:hover:bg-green-600;
+  }
+
+  .btn-purple {
+    @apply bg-purple-600 text-white py-2 px-4 rounded-md 
+           hover:bg-purple-700 
+           focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2
+           dark:bg-purple-700 dark:hover:bg-purple-600;
+  }
+
+  .btn-yellow {
+    @apply bg-yellow-600 text-white py-2 px-4 rounded-md 
+           hover:bg-yellow-700 
+           focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2
+           dark:bg-yellow-700 dark:hover:bg-yellow-600;
+  }
+
+  .btn-red {
+    @apply bg-red-600 text-white py-2 px-4 rounded-md 
+           hover:bg-red-700 
+           focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2
+           dark:bg-red-700 dark:hover:bg-red-600;
+  }
+}
+
+/* Custom Text Shadow */
+.text-shadow-light-dark {
+  text-shadow: 
+    -1px -1px 3px rgba(0, 0, 0, 0.5),
+    1px -1px 3px rgba(0, 0, 0, 0.5),
+    -1px 1px 3px rgba(0, 0, 0, 0.5),
+    1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Toggle Switch CSS */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
