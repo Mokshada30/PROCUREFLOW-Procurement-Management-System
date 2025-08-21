@@ -1,11 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/utils/supabase";
 import { useSearchParams } from 'next/navigation';
 
-export default function LoginPage() {
+function LoginForm() {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -165,12 +165,20 @@ export default function LoginPage() {
         </button>
 
         <p className="mt-4 text-center text-sm">
-          Don’t have an account?{" "}
+          Don't have an account?{" "}
           <a href="/signup" className="text-blue-600 dark:text-blue-400 hover:underline">
             Sign Up
           </a>
         </p>
       </div>
     </div>
+  );
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <LoginForm />
+    </Suspense>
   );
 }
