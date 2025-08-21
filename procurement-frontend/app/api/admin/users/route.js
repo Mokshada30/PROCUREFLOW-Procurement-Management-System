@@ -1,16 +1,24 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = process.env.SUPABASE_URL;
-const supabaseServiceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-
-const supabaseAdmin = createClient(supabaseUrl, supabaseServiceRoleKey);
+// Create Supabase client inside the function to avoid build-time execution
+function createSupabaseAdmin() {
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseServiceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  
+  if (!supabaseUrl || !supabaseServiceRoleKey) {
+    throw new Error('Missing Supabase environment variables');
+  }
+  
+  return createClient(supabaseUrl, supabaseServiceRoleKey);
+}
 
 export async function GET(request) {
   try {
     // In a real application, you would also verify the user's role to ensure only admins can access this.
     // For this example, we assume this API route is internally protected or called after a client-side role check.
 
+    const supabaseAdmin = createSupabaseAdmin();
     const { data: users, error } = await supabaseAdmin.auth.admin.listUsers();
 
     if (error) {
@@ -58,6 +66,7 @@ export async function PUT(request) {
     }
 
     // Update the role in the profiles table
+    const supabaseAdmin = createSupabaseAdmin();
     const { error: profileUpdateError } = await supabaseAdmin
       .from('profiles')
       .update({ role: newRole })
