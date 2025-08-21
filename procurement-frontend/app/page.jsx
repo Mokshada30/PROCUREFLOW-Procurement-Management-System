@@ -4,6 +4,14 @@ import { useRouter } from "next/navigation";
 import { supabase } from "@/utils/supabase";
 
 export default function Home() {
+  useEffect(() => {
+  console.log("Runtime Supabase URL:", process.env.NEXT_PUBLIC_SUPABASE_URL);
+  console.log(
+      "Runtime Supabase Key:",
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.slice(0, 10) + "..."
+    );
+}, []);
+
   const router = useRouter();
 
   useEffect(() => {
