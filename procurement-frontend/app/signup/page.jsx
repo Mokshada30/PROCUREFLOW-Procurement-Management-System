@@ -69,13 +69,15 @@ export default function SignUp() {
   };
 
   return (
-   <div
-  className="relative w-full min-h-screen flex items-center justify-center text-gray-900 dark:text-gray-100 p-4 bg-cover bg-center"
-  style={{ backgroundImage: "url(/images/procureflow-banner.png)" }}
->
-  {/* Dark overlay covers entire scrollable content */}
-  <div className="absolute inset-0 bg-black/50 h-full w-full"></div>
+    <div className="relative w-full min-h-screen flex items-center justify-center text-gray-900 dark:text-gray-100 p-4">
+      {/* Background image (fixed covers full page + scroll) */}
+      <div
+        className="fixed inset-0 bg-cover bg-center"
+        style={{ backgroundImage: "url(/images/procureflow-banner.png)" }}
+      ></div>
 
+      {/* Dark overlay also fixed */}
+      <div className="fixed inset-0 bg-black/50"></div>
 
       {/* Title and tagline */}
       <div className="absolute top-16 left-1/2 -translate-x-1/2 z-10 text-white text-center">
@@ -99,7 +101,10 @@ export default function SignUp() {
         <form onSubmit={handleSignUp} className="space-y-4">
           {/* Full Name */}
           <div>
-            <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+            <label
+              htmlFor="fullName"
+              className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+            >
               Full Name
             </label>
             <input
@@ -114,7 +119,10 @@ export default function SignUp() {
 
           {/* Email */}
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+            >
               Email
             </label>
             <input
@@ -129,7 +137,10 @@ export default function SignUp() {
 
           {/* Password */}
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+            <label
+              htmlFor="password"
+              className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+            >
               Password
             </label>
             <input
@@ -144,7 +155,10 @@ export default function SignUp() {
 
           {/* Role Dropdown */}
           <div>
-            <label htmlFor="role" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+            <label
+              htmlFor="role"
+              className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+            >
               Role
             </label>
             <select
