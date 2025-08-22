@@ -88,7 +88,7 @@ export default function SignUp() {
       </div>
 
       {/* Central form */}
-      <div className="relative z-10 bg-white dark:bg-gray-800 p-8 rounded-lg shadow-xl w-full max-w-md translate-y-32">
+      <div className="relative z-10 bg-white dark:bg-gray-800 p-8 rounded-lg shadow-xl w-full max-w-md translate-y-36">
         <h2 className="text-2xl font-bold mb-6 text-center text-gray-900 dark:text-white">
           Sign Up
         </h2>
