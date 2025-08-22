@@ -70,11 +70,9 @@ export default function SignUp() {
 
   return (
     <div
-  className="min-h-screen w-full flex items-center justify-center text-gray-900 dark:text-gray-100 p-4 relative overflow-y-auto bg-cover bg-center"
+  className="min-h-screen w-full flex items-center justify-center text-gray-900 dark:text-gray-100 p-4 relative overflow-y-auto bg-cover bg-center before:absolute before:inset-0 before:bg-black before:opacity-50"
   style={{ backgroundImage: "url(/images/procureflow-banner.png)" }}
 >
-  {/* Dark overlay */}
-  <div className="absolute inset-0 bg-black opacity-50"></div>
 
 
       {/* Title and tagline */}
